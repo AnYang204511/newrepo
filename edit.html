@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>居民数据管理系统</title>
+		<link rel="stylesheet" href="css/ABase.css" />
+		<link rel="stylesheet" href="css/anStyle.css" />
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/jquery.select-1.3.6.js" ></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".search-group select").sSelect();
+				//上传简历
+				$('.uploadBtn').click(function () {
+				    return $('#resumeInput').click(); 
+				});
+			 	$('#resumeInput').change(function () {
+	        	 	var obj = document.getElementById("resumeInput");
+		            var length = obj.files.length;
+		            console.log(obj.files)
+			        for (var i = 0; i < length; i++) {
+			            $(".FileArea").html("");
+			            var temp = obj.files[i].name;
+			        }
+		            $(".FileArea").html(temp);
+		            console.log($(":file").val());
+		    	});
+		    	//上传简历结束
+		    	//删除简历
+		    	$(".deleteResume").click(function(){
+		    		$(".FileArea").get(0).innerHTML = '';
+		    	})
+		    	//删除简历结束
+			})
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<form>
+				<div class="col-sm-4 h100">
+					<div class="search-group col-sm-11 mtop28">
+						<div class="search-group col-sm-6">
+							<label class="search-lable searchname4">
+								 姓:
+							</label>
+							<div class="searchtxt searchtxt4">
+								<div class="searchinput">
+									<input type="text">
+								</div>
+							</div>
+						</div>
+						<div class="search-group col-sm-6">
+							<label class="search-lable searchname4">
+								 名:
+							</label>
+							<div class="searchtxt searchtxt4">
+								<div class="searchinput">
+									<input type="text">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28">
+						<label class="search-lable searchname4">
+							性别:
+						</label>
+						<div class="searchtxt searchtxt4">
+							<div class="searchinput b0 p0" >
+								<select>
+									<option>男</option>
+									<option>女</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28">
+						<label class="search-lable searchname4">
+							外文名:
+						</label>
+						<div class="searchtxt searchtxt4">
+							<div class="searchinput">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28">
+						<label class="search-lable searchname4">
+							家族姓:
+						</label>
+						<div class="searchtxt searchtxt4">
+							<div class="searchinput">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28">
+						<label class="search-lable searchname4">
+							籍贯:
+						</label>
+						<div class="searchtxt searchtxt4">
+							<div class="searchinput">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28">
+						<label class="search-lable searchname4">
+							部门:
+						</label>
+						<div class="searchtxt searchtxt4">
+							<div class="searchinput">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28 h116">
+						<label class="search-lable searchname4">
+							职位:
+						</label>
+						<div class="searchtxt searchtxt4">
+							<div class="searchinput h116">
+								<textarea class="h116 searchTextarea"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28">
+						<label class="search-lable searchname4">
+							级别:
+						</label>
+						<div class="searchtxt searchtxt4">
+							<div class="searchinput">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28">
+						<label class="search-lable searchname4">
+							军衔:
+						</label>
+						<div class="searchtxt searchtxt4">
+							<div class="searchinput">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 h100">
+					<div class="search-group col-sm-11 mtop28">
+						<label class="search-lable searchname6">
+							学位:
+						</label>
+						<div class="searchtxt searchtxt6">
+							<div class="searchinput b0 p0">
+								<select>
+									<option>硕士</option>
+									<option>本科</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28 h116">
+						<label class="search-lable searchname6">
+							毕业院校:
+						</label>
+						<div class="searchtxt searchtxt6">
+							<div class="searchinput h116">
+								<textarea class="h116 searchTextarea"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28">
+						<label class="search-lable searchname6">
+							身份证号:
+						</label>
+						<div class="searchtxt searchtxt6">
+							<div class="searchinput">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28">
+						<label class="search-lable searchname6">
+							护照号:
+						</label>
+						<div class="searchtxt searchtxt6">
+							<div class="searchinput">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28">
+						<label class="search-lable searchname6">
+							电子邮箱:
+						</label>
+						<div class="searchtxt searchtxt6">
+							<div class="searchinput">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28">
+						<label class="search-lable searchname6">
+							手机号码:
+						</label>
+						<div class="searchtxt searchtxt6">
+							<div class="searchinput">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28 h152">
+						<label class="search-lable searchname6">
+							现居住地:
+						</label>
+						<div class="searchtxt searchtxt6">
+							<div class="searchinput h152">
+								<textarea class="h152 searchTextarea"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4 h100">
+					<div class="search-group col-sm-11 mtop28">
+						<label class="search-lable searchname6">
+							家用电话:
+						</label>
+						<div class="searchtxt searchtxt6">
+							<div class="searchinput">
+								<input type="text">
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28 h186">
+						<label class="search-lable searchname6">
+							培训经历:
+						</label>
+						<div class="searchtxt searchtxt6">
+							<div class="searchinput h186">
+								<textarea class="h186 searchTextarea"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28 h106">
+						<label class="search-lable searchname6">
+							个人简历:
+						</label>
+						<div class="searchtxt searchtxt6">
+							<div class="searchinput h106">
+								<div class="resumeName pull-left">
+									<span class="FileArea">
+										贾樟柯个人简历.doc
+									</span>	
+								</div>
+								<div class="resumeBtn pull-left">
+									<span class="deleteResume">
+										删除
+									</span>
+									<span class="uploadBtn">
+										上传
+									</span>
+									<input type="file" single id="resumeInput" class="isHide">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28 h157">
+						<label class="search-lable searchname6">
+							照片:
+						</label>
+						<div class="searchtxt searchtxt6">
+							<div class="searchinput h157">
+								<div class="col-sm-4 h100">
+									<div class="imgBox">
+										<img src="img/dImg.png" class="dImg"/>
+										<img src="img/tupian.png" class="picture"/>
+										<img src="img/addImg.png" class="addImg isHide"/>
+									</div>
+									<p class="imgTitle">
+										生活照.jpg  
+									</p>
+								</div>
+								<div class="col-sm-4 h100">
+									<div class="imgBox">
+										<img src="img/dImg.png" class="dImg "/>
+										<img src="img/tupian.png" class="picture"/>
+										<img src="img/addImg.png" class="addImg isHide"/>
+									</div>
+									<p class="imgTitle">
+										生活照.jpg  
+									</p>
+								</div>
+								<div class="col-sm-4 h100">
+									<div class="imgBox">
+										<img src="img/dImg.png" class="dImg isHide"/>
+										<img src="img/addImg.png" class="picture"/>
+									</div>
+									<p class="imgTitle">
+										生活照.jpg  
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="search-group col-sm-11 mtop28 h157">
+						<label class="search-lable searchname6">
+							照片:
+						</label>
+						<div class="searchtxt searchtxt6">
+							<div class="searchinput h157">
+								<div class="col-sm-3a h100">
+									<div class="imgBox">
+										<img src="img/dImg.png" class="dImg"/>
+										<img src="img/tupian.png" class="picture"/>
+										<img src="img/addImg.png" class="addImg isHide"/>
+									</div>
+									<p class="imgTitle">
+										生活照.jpg  
+									</p>
+								</div>
+								<div class="col-sm-3a h100">
+									<div class="imgBox">
+										<img src="img/dImg.png" class="dImg "/>
+										<img src="img/tupian.png" class="picture"/>
+										<img src="img/addImg.png" class="addImg isHide"/>
+									</div>
+									<p class="imgTitle">
+										生活照.jpg  
+									</p>
+								</div>
+								<div class="col-sm-3a h100">
+									<div class="imgBox">
+										<img src="img/dImg.png" class="dImg isHide"/>
+										<img src="img/addImg.png" class="picture"/>
+									</div>
+									<p class="imgTitle">
+										未添加 
+									</p>
+								</div>
+								<div class="col-sm-3a h100">
+									<div class="imgBox">
+										<img src="img/dImg.png" class="dImg isHide"/>
+										<img src="img/addImg.png" class="picture"/>
+									</div>
+									<p class="imgTitle">
+										未添加
+									</p>
+								</div>
+								<div class="col-sm-3a h100">
+									<div class="imgBox">
+										<img src="img/dImg.png" class="dImg isHide"/>
+										<img src="img/addImg.png" class="picture"/>
+									</div>
+									<p class="imgTitle">
+										未添加 
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 editBtnBox mtop66">
+					<button type="submit" class="editBtn">
+						提交
+					</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
+ 

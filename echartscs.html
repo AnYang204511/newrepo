@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/ABase.css" />
+		<link rel="stylesheet" href="css/anStyle.css" />
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/echarts.min.js" ></script>
+	</head>
+	<body>
+		<div class="echart_c" id="nation" style="height: 400px;"></div>
+		<script>
+			var nation = echarts.init(document.getElementById('nation'));
+			var nationOption = {
+				tooltip: {
+			        trigger: 'axis',
+			        axisPointer: {           
+			            type: 'line'        
+			        },
+			        formatter: '{a} <br/>{b} : {c}万'
+			    },
+			    grid: {
+			        left: '3%',
+			        right: '4%',
+			        bottom: '3%',
+			    },
+			    xAxis: [
+			        {
+			            type: 'category',
+			            data: ['汉族', '蒙古族', '回族', '满族', '布依族', '藏族', '白族','朝鲜族','土家族','壮族 ','汉族', '蒙古族', '回族', '满族', '布依族', '藏族', '白族','朝鲜族','土家族','壮族 ','汉族', '蒙古族', '回族', '满族', '布依族', '藏族', '白族','朝鲜族','土家族','壮族 ','汉族', '蒙古族', '回族', '满族', '布依族', '藏族', '白族','朝鲜族','土家族','壮族 ','汉族', '蒙古族', '回族', '满族', '布依族', '藏族', '白族','朝鲜族','土家族','壮族 ','汉族', '蒙古族', '回族', '满族', '布依族', '藏族', '白族','朝鲜族','土家族','壮族 ','汉族', '蒙古族', '回族', '满族', '布依族', '藏族', '白族','朝鲜族','土家族','壮族 ','汉族', '蒙古族', '回族', '满族', '布依族', '藏族', '白族','朝鲜族','土家族','壮族 '],
+			            axisTick: {
+			                alignWithLabel: true
+			            },
+			            axisTick: {
+			                show: false
+			            },
+			        }
+			    ],
+			    yAxis: [
+			        {
+			            type: 'value',
+			            name:'数量(万)',
+			            axisTick: {
+			                show: false
+			            },
+			        }
+			    ],
+			    series: [
+			        {
+			            name: '数量',
+			            type: 'bar',
+			            barWidth: '60%',
+			            itemStyle: {
+							normal: {
+								color: 'rgba(46,118,238, 0.45)',
+								label: {
+									show: true, //开启显示
+									position: 'top', //在上方显示
+									textStyle: { //数值样式
+										color: 'black',
+										fontSize: 16
+									}
+								}
+							}
+						},
+			            data: [1000, 52, 200, 334, 390, 330, 220,500,400,98,1000, 52, 200, 334, 390, 330, 220,500,400,98,1000, 52, 200, 334, 390, 330, 220,500,400,98,1000, 52, 200, 334, 390, 330, 220,500,400,98,1000, 52, 200, 334, 390, 330, 220,500,400,98,1000, 52, 200, 334, 390, 330, 220,500,400,98,1000, 52, 200, 334, 390, 330, 220,500,400,98,1000, 52, 200, 334, 390, 330, 220,500,400,98]
+			        }
+			    ]
+			};
+			nation.setOption(nationOption);
+		</script>
+	</body>
+</html>

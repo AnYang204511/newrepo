@@ -1,0 +1,140 @@
+html,
+body {
+  height: 100vh;
+}
+.mtop60 {
+  margin-top: 5.55555556vh;
+}
+.p0 {
+  padding: 0 !important;
+}
+.border0 {
+  border: 0 !important;
+}
+.h100 {
+  height: 100%;
+}
+.pull-left {
+  float: left !important;
+}
+.pull-right {
+  float: right !important;
+}
+.logo_body {
+  height: 100%;
+  background: url(../img/logoBackImg.jpg) no-repeat center center;
+}
+.login_container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
+  margin: -24.07407407vh 0 0 -17.60416667vw;
+  width: 35.20833333vw;
+  height: 48.14814815vh;
+  background: #fff;
+  border-radius: 0.83333333vw;
+}
+.login_title {
+  height: 11.11111111vh;
+  font-size: 4.62962963vh;
+  line-height: 11.11111111vh;
+  text-align: center;
+  color: #2e76ee;
+  font-family: "宋体";
+  background: #e8f5ff;
+  border-top-left-radius: 0.83333333vw;
+  border-top-right-radius: 0.83333333vw;
+}
+#loginForm {
+  padding-top: 3.14814815vh;
+  margin: 0 auto;
+  width: 25.52083333vw;
+  height: 33.88888889vh;
+}
+.form-group {
+  overflow: hidden;
+  height: 5vh;
+  border: solid 0.09259259vh #edeeef;
+}
+.form-img {
+  width: 2.8125vw;
+  height: 5vh;
+  line-height: 5vh;
+  text-align: center;
+}
+.form-img img {
+  vertical-align: middle;
+}
+.form-img img.nameImg {
+  width: 1.45833333vw;
+}
+.form-input {
+  width: 22.5vw;
+  height: 100%;
+}
+.form-input input {
+  margin-top: 0.09259259vh;
+  padding: 0.74074074vh 0;
+  width: 100%;
+  height: 3.33333333vh;
+  border: 0;
+  outline: none;
+  font-size: 1.66666667vh;
+  line-height: 3.33333333vh;
+  color: #d1d1d1;
+  font-family: "微软雅黑";
+}
+.form-remember {
+  margin: 4.25925926vh 0 2.22222222vh 0;
+  height: 2.96296296vh;
+  font-size: 1.66666667vh;
+  color: #676767;
+  line-height: 2.96296296vh;
+}
+#RememberMe {
+  width: 2.96296296vh;
+  height: 2.96296296vh;
+  margin-right: 0.83333333vw;
+}
+#submit {
+  height: 5.74074074vh;
+}
+.submitBtn {
+  width: 100%;
+  height: 5.74074074vh;
+  background: #2e76ee;
+  border: 0;
+  outline: none;
+  font-size: 2.22222222vh;
+  color: #fff;
+  line-height: 5.74074074vh;
+}
+.echart_container {
+  height: 100%;
+}
+.echart_top {
+  height: 40%;
+}
+.population {
+  height: 100%;
+}
+.p_echart {
+  padding-right: 30px;
+  height: 100%;
+}
+.boxShadow {
+  height: 100%;
+  box-shadow: #e3e3e3 0px 0px 0.92592593vh 0;
+}
+.echart_title {
+  padding-left: 24px;
+  height: 44px;
+  font: 18px/44px "微软雅黑";
+  color: #000;
+  background: url(../img/echart_t_img.png) no-repeat 7px center;
+  background-color: #ecf3fd;
+}
+#nb{
+  background: red;
+}

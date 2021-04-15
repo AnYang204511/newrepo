@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>居民数据管理系统</title>
+		<link rel="stylesheet" href="css/ABase.css" />
+		<link rel="stylesheet" href="css/anStyle.css" />
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/echarts.min.js" ></script>
+	</head>
+	<body>
+		<div class="echart_container">
+			<div class="echart_top">
+				<div class="col-sm-4 population">
+					<div class="p_echart">
+						<div class="boxShadow">
+							<div class="echart_title">
+								人口统计
+							</div>
+							<div class="echart_c" id="population">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-8 population">
+					<div class="boxShadow">
+						<div class="echart_title">
+							人口属性统计
+						</div>
+						<div class="echart_c p0">
+							<div class="col-sm-4 h100">
+								<div class="gender" id="Gender"></div>
+								<div class="marriage" id="marriage"></div>
+							</div>
+							<div class="col-sm-4 h100" id="education"></div>
+							<div class="col-sm-4 h100" id="age"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="echarts_bottom">
+				<div class="col-sm-6 h100">
+					<div class="h100 number boxShadow">
+						<div class="echart_title">
+							人口数量统计
+						</div>
+						<div class="echart_c" id="number"></div>
+					</div>
+				</div>
+				<div class="col-sm-6 h100 ">
+					<div class="h100 nation boxShadow">
+						<div class="echart_title">
+							民族分布统计
+						</div>
+						<div class="echart_c" id="nation"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(function(){
+			var myChart = echarts.init(document.getElementById('population'));
+			var option = {
+			    tooltip: {
+			        trigger: 'axis',
+			        axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+			            type: 'line'        // 默认为直线，可选为：'line' | 'shadow'
+			        },
+			        formatter: '{a} <br/>{b} : {c}万'
+			    },
+			    grid: {
+			    	top:'5%',
+			        left: '3%',
+			        right: '4%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    xAxis: [
+			        {
+			            type: 'category',
+			            data: ['常驻', '流动', '城镇', '乡镇'],
+			            axisTick: {
+			                alignWithLabel: true
+			            }
+			        }
+			    ],
+			    yAxis: [
+			        {
+			            type: 'value',
+			            axisLine:{
+			            	show:false
+			            },
+			            axisLabel:{
+			            	show:false
+			            },
+			            axisTick:{
+			            	show:false
+			            }
+			        }
+			    ],
+			    series: [
+			        {
+			            name: '人口统计',
+			            type: 'bar',
+			            barWidth: '40%',
+			            data: [10, 52, 200, 334],
+			            itemStyle: {
+							normal: {
+								color: new echarts.graphic.LinearGradient(
+					                    0, 0, 0, 1,
+					                    [
+					                        {offset: 0, color: '#2577ff'},
+					                        {offset: 0.5, color: '#9ac0ff'},
+					                        {offset: 1, color: '#eaf2ff'}
+					                    ]
+					                ),
+								label: {
+									show: true, //开启显示
+									position: 'top', //在上方显示
+									textStyle: { //数值样式
+										color: 'black',
+										fontSize: 16
+									}
+								}
+							}
+						},
+
+			        }
+			    ]
+			};
+			myChart.setOption(option);
+			var Gender = echarts.init(document.getElementById('Gender'));
+			var genderOption = {
+				title: {
+			        text: '性别分布',
+			        left:12,
+			        top:12,
+			        textStyle:{
+		        	 	fontSize:16,
+			        	color:'#010101'
+			        }
+			    },
+			    tooltip: {
+			        trigger: 'axis',
+			        axisPointer: {  
+			            type: 'line'
+			        },
+			        formatter:'性别分布</br>'+'{b}:{c}%'
+			    },
+			    grid: {
+			    	top:40,
+			        left: '3%',
+			        right: '4%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    xAxis: [
+			        {
+			            axisLine:{
+			            	lineStyle:{
+			            		color:'#969696',
+			            		width:1
+			            	}
+			            },
+			            axisLabel:{
+			            	show:false
+			            },
+			            axisTick:{
+			            	show:false
+			            },
+			            splitLine:{
+			            	show: true,
+			            	lineStyle:{
+			            		color:"#4b4b4b",
+			            		width:1,
+			            		type:'dashed'
+			            	}
+			            }
+			        }
+			    ],
+			    yAxis: [
+		            {
+			            type: 'category',
+			            axisLine:{
+			            	lineStyle:{
+			            		color:'#888888',
+			            		width:1
+			            	}
+			            },
+			            axisTick: {
+			                show: false
+			            },
+			            data: ['男性', '女性']
+			        } 
+			    ],
+			    series: [
+			        {
+			            name: '人口统计',
+			            type: 'bar',
+			            barWidth: '40%',
+			            data: [10, 52],
+			            itemStyle: {
+							normal: {
+								color: function(params) {
+		                            var colorList = ["#70d7fa","#f5737b"];
+		                            return colorList[params.dataIndex]
+		                        },
+							}
+						},
+						label: {
+							show: true, 
+							position: 'right', 
+							textStyle: { 
+								color: '#969696',
+							},
+							formatter: '{c}%'　　
+						}
+
+			        }
+			    ]
+			};
+			Gender.setOption(genderOption);
+			var marriage = echarts.init(document.getElementById('marriage'));
+			var marriageOption = {
+				title: {
+			        text: '婚姻状况',
+			        left:12,
+			        top:12,
+			        textStyle:{
+		        	 	fontSize:16,
+			        	color:'#010101'
+			        }
+			   },
+			    grid: {
+			    	top:'3%',
+			        left: '3%',
+			        right: '4%',
+			        bottom: '0%',
+			        containLabel: true
+			    },
+				tooltip: {
+			        trigger: 'item',
+			        formatter: '{a} <br/>{b}: {c}万'+' ({d}%)'
+			    },
+			    series: [
+			        {
+			            name: '婚姻状况',
+			            type: 'pie',
+			            radius: ['50%', '65%'],
+			            avoidLabelOverlap: false,
+			            label: {
+			                show: true,
+			                color:'#5f5f5f',
+			                position: 'outside',
+			                formatter: '{b}: {c}万'
+			            },
+			            itemStyle: {
+							normal: {
+								color: function(params) {
+		                            var colorList = ["#50de8c","#f5737b","#70d7fa","#fe7e57"];
+		                            return colorList[params.dataIndex]
+		                        },
+							}
+						},
+			            data: [
+			                {value: 335, name: '不详'},
+			                {value: 310, name: '已婚'},
+			                {value: 234, name: '未婚'},
+			                {value: 135, name: '离异'}
+			            ]
+			        }
+			    ]
+			};
+			marriage.setOption(marriageOption);
+			var education = echarts.init(document.getElementById('education'));
+			var educationOption = {
+				title: {
+			        text: '文化程度统计',
+			        left:12,
+			        top:12,
+			        textStyle:{
+		        	 	fontSize:16,
+			        	color:'#010101'
+			        }
+			   },
+			    grid: {
+			    	top:40,
+			        left: '3%',
+			        right: '4%',
+			        bottom: '0%',
+			        containLabel: true
+			    },
+				tooltip: {
+			        trigger: 'item',
+			        formatter: '文化程度统计<br/>{b}: {c}'
+			    },
+			 	xAxis: {
+			        show:false
+			    },
+			    yAxis: {
+			    	axisLine:{
+		            	show:false
+		           },
+		            axisTick:{
+		            	show:false
+		            },
+			        type: 'category',
+			        data: ['小学以下','小学','初中','高中', '大专','本科','硕士','博士']
+			    },
+			    series: [{
+			        data: [120, 200, 150, 80, 70, 110, 130, 230],
+			        type: 'bar',
+			        barWidth: '40%',
+			        itemStyle: {
+						normal: {
+							color: '#fe7e57'
+						}
+					},
+			        showBackground: true,
+			        backgroundStyle: {
+			            color: '#ecf3fd'
+			        }
+			    }]
+			}
+			education.setOption(educationOption);
+			var age = echarts.init(document.getElementById('age'));
+			var ageOption = {
+			    title: {
+			        text: '年龄分布',
+			        left:12,
+			        top:12,
+			        textStyle:{
+		        	 	fontSize:16,
+			        	color:'#010101'
+			        }
+			    },
+			    tooltip: {
+			        trigger: 'item',
+			        formatter: '{a} <br/>{b} : {c}万'
+			    },
+			    grid: {
+			    	top:40,
+			        left: '3%',
+			        right: '4%',
+			        bottom: '0%',
+			        containLabel: true
+			    },
+			    series: [
+			        {
+			            name: '年龄分布',
+			            type: 'funnel',
+			            width: '50%',
+			            height: '70%',
+			            left: '30%',
+			            top: '20%',
+			            sort: 'ascending',
+			            data: [
+			                {value: 20, name: '0-17岁'},
+			                {value: 40, name: '18-25岁'},
+			                {value: 60, name: '26-35岁'},
+			                {value: 80, name: '36-45岁'},
+			                {value: 100, name: '46-55岁'},
+			                {value: 120, name: '56-65岁'},
+			                {value: 140, name: '65岁以上'}
+			            ],
+			            itemStyle: {
+							normal: {
+								color: function(params) {
+		                            var colorList = ["#dbeaff","#bbe1f6","#59b9f9","#1998f5","#007de9","#025db0","#013d72"];
+		                            return colorList[params.dataIndex]
+		                        },
+							}
+						},
+			        }
+			    ]
+			};
+			age.setOption(ageOption);
+			var num = echarts.init(document.getElementById('number'));
+			var numOption = {
+			    tooltip: {
+			        trigger: 'axis'
+			    },
+			    legend: {
+			    	right:24,
+			    	top:18,
+			        data: ['出生人数', '死亡人数', '迁入人数', '迁出人数']
+			    },
+			    grid: {
+			        left: '3%',
+			        right: '4%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    xAxis: {
+			        type: 'category',
+			        axisLine:{
+		            	lineStyle:{
+		            		color:'#000',
+		            		width:1
+		            	}
+		            },
+			        data: ['2010', '2011', '2012', '2013', '2014', '2015', '2016']
+			    },
+			    yAxis: {
+			        type: 'value',
+			        axisLine:{
+		            	lineStyle:{
+		            		color:'#000',
+		            		width:1
+		            	}
+		            },
+		            name:'数量(万)'
+			    },
+			    series: [
+			        {
+			            name: '出生人数',
+			            type: 'line',
+			            stack: '总数',
+			            color:'#3285ff',
+			            data: [120, 132, 101, 134, 90, 230, 310]
+			        },
+			        {
+			            name: '死亡人数',
+			            type: 'line',
+			            stack: '总数',
+			            color:'#eb5733',
+			            data: [220, 182, 191, 234, 290, 330, 310]
+			        },
+			        {
+			            name: '迁入人数',
+			            type: 'line',
+			            stack: '总数',
+			            color:'#3eb36f',
+			            data: [150, 232, 201, 154, 190, 330, 410]
+			        },
+			        {
+			            name: '迁出人数',
+			            type: 'line',
+			            stack: '总数',
+			            color:'#ea9336',
+			            data: [320, 332, 301, 334, 390, 330, 320]
+			        }
+			    ]
+			};
+			num.setOption(numOption);
+			var nation = echarts.init(document.getElementById('nation'));
+			var nationOption = {
+				tooltip: {
+			        trigger: 'axis',
+			        axisPointer: {           
+			            type: 'line'        
+			        },
+			        formatter: '{a} <br/>{b} : {c}万'
+			    },
+			    grid: {
+			        left: '3%',
+			        right: '4%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    xAxis: [
+			        {
+			            type: 'category',
+			            data: ['汉族', '蒙古族', '回族', '满族', '布依族', '藏族', '白族','朝鲜族','土家族','壮族 '],
+			            axisTick: {
+			                alignWithLabel: true
+			            },
+			            axisTick: {
+			                show: false
+			            },
+			        }
+			    ],
+			    yAxis: [
+			        {
+			            type: 'value',
+			            name:'数量(万)',
+			            axisTick: {
+			                show: false
+			            },
+			        }
+			    ],
+			    series: [
+			        {
+			            name: '数量',
+			            type: 'bar',
+			            barWidth: '60%',
+			            itemStyle: {
+							normal: {
+								color: 'rgba(46,118,238, 0.45)',
+								label: {
+									show: true, //开启显示
+									position: 'top', //在上方显示
+									textStyle: { //数值样式
+										color: 'black',
+										fontSize: 16
+									}
+								}
+							}
+						},
+			            data: [1000, 52, 200, 334, 390, 330, 220,500,400,98]
+			        }
+			    ]
+			};
+			nation.setOption(nationOption);
+		})
+	</script>
+</html>
